@@ -7,8 +7,8 @@
 }
 
 body {
-  background-color: black;
-  color: white;
+  background-color: aquamarine;
+  color: black;
   font-family: "Roboto", sans-serif;
   display: flex;
   /* align-items: center; */
@@ -41,10 +41,10 @@ h1 {
 }
 
 .X {
-  color: red;
+  color: purple;
 }
 .O {
-  color: green;
+  color: white;
 }
 
 .info-wrapper {
