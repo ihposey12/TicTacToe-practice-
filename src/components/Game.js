@@ -14,7 +14,7 @@ const Game = () => {
         const current = historyPoint[stepNumber]
         const squares = [...current]
         
-        if(winner || squares[i]) return
+        if(winner || squares[i]) return;
 
         squares[i] = x0
         setHistory([...historyPoint, squares])
@@ -27,7 +27,29 @@ const Game = () => {
         setXIsNext(step % 2 === 0)
     }
 
-    const renderMoves = () => {
+    const renderMoves = () =>
+        history.map((_step, move) => {
+            const destination = move ? `Go to move #${move}` : 'Go to Start'
+            return(
+                <li key={move}>
+                    <button onClick={() => jumptTo(move)}>{destination}</button>
+                </li>
+            )
+        })
         
-    }
+    return(
+        <>
+            <h1>React Tic Tac Toe</h1>
+            <Board squares={history[stepNumber]} onClick={handleClick} />
+            <div className='info-wrapper'>
+                <div>
+                    <h3>History</h3>
+                    {renderMoves()}
+                </div>
+                <h3>{winner ? 'Winner: ' + winner : 'Next Player: ' + x0}</h3>
+            </div>
+        </>
+    )
 }
+
+export default Game
